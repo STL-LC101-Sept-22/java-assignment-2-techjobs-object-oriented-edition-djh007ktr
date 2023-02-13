@@ -70,7 +70,7 @@ public class JobTest {
         assertTrue(job7.toString().contains("Location: " + job7.getLocation() + '\n'));
         assertTrue(job7.toString().contains("Position Type: " + job7.getPositionType() + '\n'));
         assertTrue(job7.toString().contains("Core Competency: " + job7.getCoreCompetency() + '\n'));
-        assertEquals(job7.toString(), "\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition" +
+        assertEquals(job7.toString(), "\nID: 4\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition" +
                 " Type: Quality control\nCore Competency: Persistence\n");
     }
 
@@ -78,8 +78,10 @@ public class JobTest {
     public void testToStringHandlesEmptyField() {
         Job job8 = new Job("Product designer", new Employer(""), new Location("San Francisco"),
                 new PositionType("Engineering"), new CoreCompetency("Innovation"));
+        String stringedJob8 = job8.toString();
 
-        assertEquals(job8.getEmployer().getValue(), null);
-        assertTrue(job8.toString().contains("Employer: " + "Data not available" + '\n'));
+        assertEquals(job8.getEmployer().getValue(), "");
+        assertEquals(stringedJob8,"\nID: 3\nName: Product designer\nEmployer: Data not available\nLocation: " +
+                "San Francisco\nPosition Type: Engineering\nCore Competency: Innovation\n");
     }
 }
