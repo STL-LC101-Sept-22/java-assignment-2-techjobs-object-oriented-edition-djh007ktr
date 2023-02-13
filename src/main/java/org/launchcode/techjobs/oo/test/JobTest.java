@@ -22,7 +22,7 @@ public class JobTest {
     }
 
     @Test
-    public void testJobConstructorSetsALlFields() {
+    public void testJobConstructorSetsAllFields() {
         Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                    new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
@@ -70,6 +70,8 @@ public class JobTest {
         assertTrue(job7.toString().contains("Location: " + job7.getLocation() + '\n'));
         assertTrue(job7.toString().contains("Position Type: " + job7.getPositionType() + '\n'));
         assertTrue(job7.toString().contains("Core Competency: " + job7.getCoreCompetency() + '\n'));
+        assertEquals(job7.toString(), "\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition" +
+                " Type: Quality control\nCore Competency: Persistence\n");
     }
 
     @Test
@@ -77,6 +79,7 @@ public class JobTest {
         Job job8 = new Job("Product designer", new Employer(""), new Location("San Francisco"),
                 new PositionType("Engineering"), new CoreCompetency("Innovation"));
 
+        assertEquals(job8.getEmployer().getValue(), null);
         assertTrue(job8.toString().contains("Employer: " + "Data not available" + '\n'));
     }
 }
