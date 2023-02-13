@@ -92,4 +92,18 @@ public class Job {
     public int hashCode() {
         return Objects.hash(getId());
     }
+
+    @Override
+    public String toString() {
+        String reportString =
+            '\n' +
+            "ID: " + this.id + '\n' +
+            "Name: " + (this.name.isEmpty() ? "Data not available" : this.name) + '\n' +
+            "Employer: " + (this.employer.toString().isEmpty() ? "Data not available" : this.employer) + '\n' +
+            "Location: " + (this.location.toString().isEmpty() ? "Data not available" : this.location) + '\n' +
+            "Position Type: " + (this.positionType.toString().isEmpty() ? "Data not available" : this.positionType) + '\n' +
+            "Core Competency: " + (this.coreCompetency.toString().isEmpty() ? "Data not available" : this.coreCompetency) + '\n';
+        return reportString;
+    }
+
 }
